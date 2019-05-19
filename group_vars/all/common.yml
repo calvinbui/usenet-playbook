@@ -2,7 +2,14 @@
 # this is for variables that will be reused
 
 common_user: "calvin"
-common_group: "calvin"
-common_user_id: "1000"
-common_user_group: "1000"
-common_directory: "/usenet"
+common_group: "root"
+common_user_id: "1000" # calvin
+common_user_group: "0" # root
+common_timezone: "Australia/Sydney"
+common_tldr: "nivl.ac"
+
+common_directory_config: "/usenet"
+common_directory_nfs: "/mnt/files"
+common_directory_download: "{{ common_directory_nfs }}/Downloads"
+common_directory_tv: "{{ common_directory_nfs }}/TV"
+common_directory_movies: "{{ common_directory_nfs }}/Movies"

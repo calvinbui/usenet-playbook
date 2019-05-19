@@ -1,0 +1,54 @@
+---
+
+nzbget_name: nzbget
+nzbget_image: linuxserver/nzbget
+nzbget_ports:
+  - 6789:6789
+nzbget_config_directory: "{{ common_directory_config }}/nzbget"
+nzbget_download_directory: "{{ common_directory_download }}"
+nzbget_environment_variables:
+  PUID: "{{ common_user_id }}"
+  PGID: "{{ common_user_group }}"
+  TZ: "{{ common_timezone }}"
+
+nzbget_docker_additional_options:
+  restart_policy: unless-stopped
+  networks: "{{ docker_networks }}"
+  labels:
+    traefik.frontend.rule: "Host:{{ nzbget_name }}.{{ common_tldr }}"
+    traefik.port: "{{ nzbget_ports[0].split(':')[0] }}"
+
+nzbget_config:
+  - MainDir=/downloads
+  - DestDir=${MainDir}
+  - InterDir=${MainDir}/Intermediate/Incomplete
+  - NzbDir=${MainDir}/Intermediate/Watch
+  - QueueDir=${MainDir}/Intermediate/Queue
+  - TempDir=${MainDir}/Intermediate/Temp
+  - ScriptDir=/config/scripts
+  - LockFile=/config/nzbget.lock
+  - LogFile=/config/nzbget.log
+  - ControlUsername=
+  - ControlPassword=
+  - DupeCheck=no
+  - ArticleCache=200
+  - WriteBuffer=1024
+  - PostStrategy=sequential
+  - ReorderFiles=yes
+  - DownloadRate=10000
+  - WriteLog=rotate
+  - ParBuffer=128
+  - ParPauseQueue=yes
+  - DirectRename=yes
+  - UnpackPauseQueue=yes
+  - DirectUnpack=yes
+  - ScriptPauseQueue=yes
+  - Category1.Name=Movies
+  - Category1.DestDir=Movies
+  - Category1.Aliases=movies*
+  - Category2.Name=TV
+  - Category2.DestDir=TV
+  - Category2.Unpack=yes
+  - Category3.Name=Games
+  - Category3.DestDir=Games
+  - Category3.Aliases=Games

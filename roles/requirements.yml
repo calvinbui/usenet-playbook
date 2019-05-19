@@ -13,3 +13,18 @@
 
 - src: calvinbui.ansible_traefik
   version: '1.0.0'
+
+- src: calvinbui.ansible_nzbget_docker
+  version: '1.0.0'
+
+- src: calvinbui.ansible_qbittorrent_docker
+  version: '1.0.3'
+
+- src: calvinbui.ansible_sonarr_docker
+  version: '1.0.1'
+
+- src: calvinbui.ansible_couchpotato_docker
+  version: '1.0.1'
+
+- src: calvinbui.ansible_nzbhydra_docker
+  version: '1.0.1'

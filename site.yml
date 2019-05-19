@@ -9,9 +9,9 @@
         cache_valid_time: 600
       changed_when: false
       when: ansible_os_family == 'Debian'
-    - name: Create common directory
+    - name: Create common config directory
       file:
-        path: "{{ common_directory }}"
+        path: "{{ common_directory_config }}"
         state: directory
         owner: "{{ common_user }}"
         group: "{{ common_group }}"
@@ -21,3 +21,8 @@
     - role: calvinbui.ansible_pip
     - role: calvinbui.ansible_docker_network
     - role: calvinbui.ansible_traefik
+    - role: calvinbui.ansible_nzbget_docker
+    - role: calvinbui.ansible_qbittorrent_docker
+    - role: calvinbui.ansible_sonarr_docker
+    - role: calvinbui.ansible_couchpotato_docker
+    - role: calvinbui.ansible_nzbhydra_docker
