@@ -1,0 +1,23 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: true
+        cache_valid_time: 600
+      changed_when: false
+      when: ansible_os_family == 'Debian'
+    - name: Create common directory
+      file:
+        path: "{{ common_directory }}"
+        state: directory
+        owner: "{{ common_user }}"
+        group: "{{ common_group }}"
+  roles:
+    - role: calvinbui.ansible_nfs_client
+    - role: calvinbui.ansible_docker
+    - role: calvinbui.ansible_pip
+    - role: calvinbui.ansible_docker_network
+    - role: calvinbui.ansible_traefik
