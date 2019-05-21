@@ -28,3 +28,6 @@
 
 - src: calvinbui.ansible_nzbhydra_docker
   version: '1.0.1'
+
+- src: calvinbui.ansible_jdownloader_docker
+  version: '1.0.0'
