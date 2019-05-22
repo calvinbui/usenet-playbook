@@ -27,3 +27,4 @@
     - role: calvinbui.ansible_couchpotato_docker
     - role: calvinbui.ansible_nzbhydra_docker
     - role: calvinbui.ansible_jdownloader_docker
+    - role: calvinbui.ansible_organizr_docker

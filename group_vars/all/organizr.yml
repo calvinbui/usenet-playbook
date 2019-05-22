@@ -1,0 +1,17 @@
+---
+
+organizr_name: organizr
+organizr_image: organizrtools/organizr-v2
+organizr_ports:
+  - 9983:80
+organizr_config_directory: "{{ common_directory_config }}/organizr"
+organizr_environment_variables:
+  PUID: "{{ common_user_id }}"
+  PGID: "{{ common_group_id }}"
+
+organizr_docker_additional_options:
+  restart_policy: unless-stopped
+  networks: "{{ docker_networks }}"
+  labels:
+    traefik.frontend.rule: "Host:{{ organizr_name }}.{{ common_tldr }}"
+    traefik.port: "{{ organizr_ports[0].split(':')[0] }}"

@@ -8,7 +8,7 @@ nzbget_config_directory: "{{ common_directory_config }}/nzbget"
 nzbget_download_directory: "{{ common_directory_download }}"
 nzbget_environment_variables:
   PUID: "{{ common_user_id }}"
-  PGID: "{{ common_user_group }}"
+  PGID: "{{ common_root_group }}"
   TZ: "{{ common_timezone }}"
 
 nzbget_docker_additional_options:

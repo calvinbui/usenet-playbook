@@ -9,7 +9,7 @@ sonarr_tv_directory: "{{ common_directory_tv }}"
 sonarr_download_directory: "{{ common_directory_download }}"
 sonarr_environment_variables:
   PUID: "{{ common_user_id }}"
-  PGID: "{{ common_user_group }}"
+  PGID: "{{ common_root_group }}"
   TZ: "{{ common_timezone }}"
 
 sonarr_docker_additional_options:

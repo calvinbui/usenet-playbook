@@ -9,7 +9,7 @@ couchpotato_movie_directory: "{{ common_directory_movies }}"
 couchpotato_download_directory: "{{ common_directory_download }}"
 couchpotato_environment_variables:
   PUID: "{{ common_user_id }}"
-  PGID: "{{ common_user_group }}"
+  PGID: "{{ common_root_group }}"
   TZ: "{{ common_timezone }}"
 
 couchpotato_docker_additional_options:

@@ -11,7 +11,7 @@ jdownloader_download_directory: "{{ common_directory_download }}"
 jdownloader_environment_variables:
   TZ: "{{ common_timezone }}"
   USER_ID: "{{ common_user_id }}"
-  GROUP_ID: "{{ common_user_group }}"
+  GROUP_ID: "{{ common_root_group }}"
   DISPLAY_WIDTH: "1920"
   DISPLAY_HEIGHT: "1080"
 

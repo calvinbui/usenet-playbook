@@ -8,7 +8,7 @@ nzbhydra_config_directory: "{{ common_directory_config }}/nzbhydra"
 nzbhydra_download_directory: "{{ common_directory_download }}"
 nzbhydra_environment_variables:
   PUID: "{{ common_user_id }}"
-  PGID: "{{ common_user_group }}"
+  PGID: "{{ common_root_group }}"
   TZ: "{{ common_timezone }}"
 
 nzbhydra_docker_additional_options:
