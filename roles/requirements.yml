@@ -24,7 +24,7 @@
   version: '1.0.1'
 
 - src: calvinbui.ansible_couchpotato_docker
-  version: '1.0.1'
+  version: '1.0.2'
 
 - src: calvinbui.ansible_nzbhydra_docker
   version: '1.0.1'

@@ -20,29 +20,42 @@ couchpotato_docker_additional_options:
     traefik.port: "{{ couchpotato_ports[0].split(':')[0] }}"
 
 couchpotato_config:
+  core.dereferer: ""
   core.dark_theme: 1
   core.launch_browser: 0
-  core.dereferrer: ""
   core.show_wizard: 0
   manage.library_refresh_interval: 24
-  manage.cleanup: 0
-  manage.enabled: 1
+  manage.cleanup: 'False'
+  manage.enabled: 'True'
   manage.library: /movies/
   renamer.file_name: <thename><cd>.<quality>.<group>.<ext>
   renamer.nfo_name: <filename>.<ext>
-  renamer.cleanup: 1
-  renamer.enabled: 1
-  renamer.unrar: 1
+  renamer.from: /downloads/Movies/
+  renamer.to: /movies/
+  renamer.cleanup: 'True'
+  renamer.enabled: 'True'
+  renamer.unrar: 'True'
   subtitle.languages: en
-  subtitle.enabled: 1
-  trailer.enabled: 1
-  blackhole.enabled: 0
+  subtitle.enabled: 'True'
+  trailer.enabled: 'True'
+  blackhole.enabled: 'False'
   nzbget.enabled: 1
-  transmission.enabled: 1
-  kickasstorrents.enabled: 0
-  torrentz.enabled: 0
+  nzbget.host: "{{ nzbget_name }}.{{ docker_networks[0].name }}:{{ nzbget_ports[0].split(':')[0] }}"
+  transmission.enabled: 'False'
+  email.starttls: 1
+  email.smtp_pass: "{{ common_email_password }}"
+  email.from: "{{ common_email_username }}"
+  email.to: "couchpotato{{ common_email_to }}"
+  email.smtp_port: "{{ common_email_smtp_port }}"
+  email.enabled: 1
+  email.smtp_server: "{{ common_email_server }}"
+  email.smtp_user: "{{ common_email_username }}"
+  newznab.use: 1
+  newznab.extra_score: ''
+  newznab.host: "{{ nzbhydra_name }}.{{ docker_networks[0].name }}:{{ nzbhydra_ports[0].split(':')[0] }}"
+  newznab.custom_tag: ''
+  newznab.api_key: ''
+  kickasstorrents.enabled: 'False'
+  torrentz.enabled: 'False'
   searcher.preferred_method: nzb
-  imdb.chart_display_top250: 1
-  imdb.chart_display_theater: 1
-  moviesearcher.cron_hour: 8
-  moviesearcher.cron_minute: 15
+  nzb.retention: "{{ nzbget_config['Server1.Retention'] }}"
