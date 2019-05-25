@@ -12,3 +12,4 @@ portainer_docker_additional_options:
   labels:
     traefik.frontend.rule: "Host:{{ portainer_name }}.{{ common_tldr }}"
     traefik.port: "{{ portainer_ports[0].split(':')[0] }}"
+  command: '--no-auth --no-analytics'
