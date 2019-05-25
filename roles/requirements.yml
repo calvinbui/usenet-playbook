@@ -34,3 +34,9 @@
 
 - src: calvinbui.ansible_organizr_docker
   version: '1.0.0'
+
+- src: calvinbui.ansible_portainer
+  version: '1.0.0'
+
+- src: calvinbui.ansible_watchtower
+  version: '1.0.0'

@@ -1,0 +1,14 @@
+---
+
+portainer_name: portainer
+portainer_image: portainer/portainer
+portainer_ports:
+  - 9000:9000
+portainer_config_directory: "{{ common_directory_config }}/portainer"
+
+portainer_docker_additional_options:
+  restart_policy: unless-stopped
+  networks: "{{ docker_networks }}"
+  labels:
+    traefik.frontend.rule: "Host:{{ couchpotato_name }}.{{ common_tldr }}"
+    traefik.port: "{{ couchpotato_ports[0].split(':')[0] }}"
