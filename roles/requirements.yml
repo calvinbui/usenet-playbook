@@ -15,7 +15,7 @@
   version: '1.0.0'
 
 - src: calvinbui.ansible_nzbget_docker
-  version: '1.0.0'
+  version: '2.0.0'
 
 - src: calvinbui.ansible_qbittorrent_docker
   version: '1.0.3'
