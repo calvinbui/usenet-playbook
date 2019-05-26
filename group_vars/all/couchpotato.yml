@@ -54,7 +54,7 @@ couchpotato_config:
   newznab.extra_score: ''
   newznab.host: "{{ nzbhydra_name }}.{{ docker_networks[0].name }}:{{ nzbhydra_ports[0].split(':')[0] }}"
   newznab.custom_tag: ''
-  newznab.api_key: ''
+  newznab.api_key: "{{ nzbhydra_config['main.apiKey'] }}"
   kickasstorrents.enabled: 'False'
   torrentz.enabled: 'False'
   searcher.preferred_method: nzb
