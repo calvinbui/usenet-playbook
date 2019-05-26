@@ -32,3 +32,5 @@ qbittorrent_config:
   Preferences.General\Locale: en_AU
   Preferences.WebUI\AuthSubnetWhitelist: 0.0.0.0/0
   Preferences.WebUI\AuthSubnetWhitelistEnabled: 'true'
+  Preferences.WebUI\CSRFProtection: 'false'
+  Preferences.WebUI\ClickjackingProtection: 'false'
