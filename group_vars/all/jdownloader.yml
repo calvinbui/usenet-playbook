@@ -19,5 +19,4 @@ jdownloader_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
   labels:
-    traefik.frontend.rule: "Host:{{ jdownloader_name }}.{{ common_tldr }}"
     traefik.port: "{{ jdownloader_ports[0].split(':')[0] }}"
