@@ -38,6 +38,7 @@ nzbhydra_downloaders:
     nzbAddingType: "UPLOAD"
     url: "http://{{ nzbget_name }}.{{ docker_networks[0].name }}:{{ nzbget_ports[0].split(':')[0] }}"
     enabled: true
+    iconCssClass: ""
 
 nzbhydra_indexers:
   - name: "abnzb"
