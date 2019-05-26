@@ -20,7 +20,6 @@ qbittorrent_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
   labels:
-    traefik.frontend.rule: "Host:{{ qbittorrent_name }}.{{ common_tldr }}"
     traefik.port: "{{ qbittorrent_webui_port }}"
 
 qbittorrent_config:

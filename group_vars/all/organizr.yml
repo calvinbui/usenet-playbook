@@ -14,4 +14,3 @@ organizr_docker_additional_options:
   networks: "{{ docker_networks }}"
   labels:
     traefik.frontend.rule: "Host:{{ common_tldr }}"
-    traefik.port: "{{ organizr_ports[0].split(':')[0] }}"

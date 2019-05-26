@@ -15,9 +15,6 @@ couchpotato_environment_variables:
 couchpotato_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
-  labels:
-    traefik.frontend.rule: "Host:{{ couchpotato_name }}.{{ common_tldr }}"
-    traefik.port: "{{ couchpotato_ports[0].split(':')[0] }}"
 
 couchpotato_config:
   core.api_key: !vault |

@@ -15,9 +15,6 @@ sonarr_environment_variables:
 sonarr_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
-  labels:
-    traefik.frontend.rule: "Host:{{ sonarr_name }}.{{ common_tldr }}"
-    traefik.port: "{{ sonarr_ports[0].split(':')[0] }}"
 
 sonarr_config:
   ApiKey: !vault |

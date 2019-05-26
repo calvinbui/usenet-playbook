@@ -14,9 +14,6 @@ nzbget_environment_variables:
 nzbget_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
-  labels:
-    traefik.frontend.rule: "Host:{{ nzbget_name }}.{{ common_tldr }}"
-    traefik.port: "{{ nzbget_ports[0].split(':')[0] }}"
 
 nzbget_config:
   MainDir: '/downloads'

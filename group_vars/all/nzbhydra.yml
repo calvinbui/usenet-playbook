@@ -14,9 +14,6 @@ nzbhydra_environment_variables:
 nzbhydra_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
-  labels:
-    traefik.frontend.rule: "Host:{{ nzbhydra_name }}.{{ common_tldr }}"
-    traefik.port: "{{ nzbhydra_ports[0].split(':')[0] }}"
 
 nzbhydra_config:
   main.apiKey: !vault |

@@ -9,7 +9,4 @@ portainer_config_directory: "{{ common_directory_config }}/portainer"
 portainer_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
-  labels:
-    traefik.frontend.rule: "Host:{{ portainer_name }}.{{ common_tldr }}"
-    traefik.port: "{{ portainer_ports[0].split(':')[0] }}"
   command: '--no-auth --no-analytics'
