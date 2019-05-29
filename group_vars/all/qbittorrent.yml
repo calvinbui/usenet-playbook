@@ -21,6 +21,7 @@ qbittorrent_docker_additional_options:
   networks: "{{ docker_networks }}"
   labels:
     traefik.port: "{{ qbittorrent_webui_port }}"
+    traefik.frontend.auth.basic.usersFile: "/htpasswd"
 
 qbittorrent_config:
   Preferences.Downloads\UseIncompleteExtension: 'true'

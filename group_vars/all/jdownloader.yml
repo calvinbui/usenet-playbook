@@ -20,3 +20,4 @@ jdownloader_docker_additional_options:
   networks: "{{ docker_networks }}"
   labels:
     traefik.port: "{{ jdownloader_ports[0].split(':')[0] }}"
+    traefik.frontend.auth.basic.usersFile: "/htpasswd"

@@ -20,6 +20,7 @@
     - role: calvinbui.ansible_docker
     - role: calvinbui.ansible_pip
     - role: calvinbui.ansible_docker_network
+    - role: calvinbui.ansible_htpasswd
     - role: calvinbui.ansible_traefik
     - role: calvinbui.ansible_nzbget_docker
     - role: calvinbui.ansible_qbittorrent_docker

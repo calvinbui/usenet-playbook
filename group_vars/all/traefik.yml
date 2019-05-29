@@ -14,6 +14,13 @@ traefik_docker_additional_options:
   networks: "{{ docker_networks }}"
   labels:
     traefik.port: "{{ traefik_ports[0].split(':')[0] }}"
+    traefik.frontend.auth.basic.usersFile: "/htpasswd"
+  volumes:
+    - "{{ traefik_config_directory }}/htpasswd:/htpasswd"
+    - /var/run/docker.sock:/var/run/docker.sock
+    - "{{ traefik_config_directory }}/traefik.toml:/traefik.toml"
+    - "{{ traefik_config_acme_file }}:/acme.json"
+
   env:
     CF_API_EMAIL: !vault |
           $ANSIBLE_VAULT;1.1;AES256

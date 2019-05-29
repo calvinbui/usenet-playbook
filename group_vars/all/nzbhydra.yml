@@ -14,6 +14,8 @@ nzbhydra_environment_variables:
 nzbhydra_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
+  labels:
+    traefik.frontend.auth.basic.usersFile: "/htpasswd"
 
 nzbhydra_config:
   main.apiKey: !vault |
