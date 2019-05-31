@@ -31,3 +31,4 @@
     - role: calvinbui.ansible_organizr_docker
     - role: calvinbui.ansible_portainer
     - role: calvinbui.ansible_watchtower
+    - role: calvinbui.ansible_datadog
