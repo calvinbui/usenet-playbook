@@ -6,3 +6,4 @@ watchtower_image: containrrr/watchtower
 watchtower_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
+  command: "--cleanup"
