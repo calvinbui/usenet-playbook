@@ -28,7 +28,7 @@ qbittorrent_config:
   Preferences.Downloads\TempPath: /downloads/Intermediate/
   BitTorrent.Session\CreateTorrentSubfolder: 'true'
   Preferences.Bittorrent\MaxRatio: 0
-  Preferences.Connection\GlobalUPLimit: 10000
+  Preferences.Connection\GlobalDLLimit: 10000
   Preferences.General\Locale: en_AU
   Preferences.WebUI\AuthSubnetWhitelist: 0.0.0.0/0
   Preferences.WebUI\AuthSubnetWhitelistEnabled: 'true'
