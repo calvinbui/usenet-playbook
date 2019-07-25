@@ -20,6 +20,7 @@ common_directory_nfs: "/mnt/files"
 common_directory_download: "{{ common_directory_nfs }}/Downloads"
 common_directory_tv: "{{ common_directory_nfs }}/TV"
 common_directory_movies: "{{ common_directory_nfs }}/Movies"
+common_directory_books: "{{ common_directory_nfs }}/Books"
 
 common_email_username: !vault |
           $ANSIBLE_VAULT;1.1;AES256
@@ -45,3 +46,5 @@ common_email_to: !vault |
           3363
 common_email_smtp_port: 587
 common_email_server: smtp.gmail.com
+
+common_usenet_retention: 3393

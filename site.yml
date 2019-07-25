@@ -16,19 +16,20 @@
         owner: "{{ common_user }}"
         group: "{{ common_group }}"
   roles:
-    - role: calvinbui.ansible_nfs_client
-    - role: calvinbui.ansible_docker
-    - role: calvinbui.ansible_pip
-    - role: calvinbui.ansible_docker_network
-    - role: calvinbui.ansible_htpasswd
-    - role: calvinbui.ansible_traefik
-    - role: calvinbui.ansible_nzbget_docker
-    - role: calvinbui.ansible_qbittorrent_docker
-    - role: calvinbui.ansible_sonarr_docker
-    - role: calvinbui.ansible_couchpotato_docker
-    - role: calvinbui.ansible_nzbhydra_docker
-    - role: calvinbui.ansible_jdownloader_docker
-    - role: calvinbui.ansible_organizr_docker
-    - role: calvinbui.ansible_portainer
-    - role: calvinbui.ansible_watchtower
-    - role: calvinbui.ansible_datadog
+    - calvinbui.ansible_nfs_client
+    - calvinbui.ansible_docker
+    - calvinbui.ansible_pip
+    - calvinbui.ansible_docker_network
+    - calvinbui.ansible_htpasswd
+    - calvinbui.ansible_traefik
+    - calvinbui.ansible_nzbget_docker
+    - calvinbui.ansible_qbittorrent_docker
+    - calvinbui.ansible_sonarr_docker
+    - calvinbui.ansible_couchpotato_docker
+    - calvinbui.ansible_nzbhydra_docker
+    - calvinbui.ansible_lazylibrarian_docker
+    - calvinbui.ansible_jdownloader_docker
+    - calvinbui.ansible_organizr_docker
+    - calvinbui.ansible_portainer
+    - calvinbui.ansible_watchtower
+    - calvinbui.ansible_datadog

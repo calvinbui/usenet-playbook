@@ -1,0 +1,38 @@
+---
+
+lazylibrarian_name: lazylibrarian
+lazylibrarian_image: linuxserver/lazylibrarian
+lazylibrarian_ports:
+  - 5299:5299
+lazylibrarian_config_directory: "{{ common_directory_config }}/lazylibrarian"
+lazylibrarian_books_directory: "{{ common_directory_books }}"
+lazylibrarian_download_directory: "{{ common_directory_download }}"
+lazylibrarian_environment_variables:
+  PUID: "{{ common_user_id }}"
+  PGID: "{{ common_root_group }}"
+  TZ: "{{ common_timezone }}"
+
+lazylibrarian_docker_additional_options:
+  restart_policy: unless-stopped
+  networks: "{{ docker_networks }}"
+  labels:
+    traefik.frontend.auth.basic.usersFile: "/htpasswd"
+
+lazylibrarian_config:
+  General.http_look: bookstrap
+  General.bookstrap_theme: superhero
+  General.comic_img: 1
+  General.comic_tab: 1
+  General.audio_tab: 1
+  General.ebook_tab: 1
+  OPDS.opds_enabled: 1
+  OPDS.metainfo: 1
+  NZBGet.nzbget_host: "{{ nzbget_name }}.{{ docker_networks[0].name }}:"
+  NZBGet.nzbget_port: "{{ nzbget_ports[0].split(':')[0] }}"
+  NZBGet.nzbget_category: Books
+  USENET.nzb_downloader_nzbget: 1
+  USENET.usenet_retention: "{{ common_usenet_retention }}"
+  GEN.gen: 1
+  Newznab0.enabled: 1
+  Newznab0.host: "{{ nzbhydra_name }}.{{ docker_networks[0].name }}:{{ nzbhydra_ports[0].split(':')[0] }}"
+  Newznab0.api: "{{ nzbhydra_config['main.apiKey'] }}"
