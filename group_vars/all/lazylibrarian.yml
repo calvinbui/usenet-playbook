@@ -21,18 +21,18 @@ lazylibrarian_docker_additional_options:
 lazylibrarian_config:
   General.http_look: bookstrap
   General.bookstrap_theme: superhero
-  General.comic_img: 1
-  General.comic_tab: 1
-  General.audio_tab: 1
-  General.ebook_tab: 1
-  OPDS.opds_enabled: 1
-  OPDS.opds_metainfo: 1
+  General.comic_img: True
+  General.comic_tab: True
+  General.audio_tab: True
+  General.ebook_tab: True
+  OPDS.opds_enabled: True
+  OPDS.opds_metainfo: True
   NZBGet.nzbget_host: "{{ nzbget_name }}.{{ docker_networks[0].name }}"
   NZBGet.nzbget_port: "{{ nzbget_ports[0].split(':')[0] }}"
   NZBGet.nzbget_category: Books
-  USENET.nzb_downloader_nzbget: 1
+  USENET.nzb_downloader_nzbget: True
   USENET.usenet_retention: "{{ common_usenet_retention }}"
-  GEN.gen: 1
-  Newznab0.enabled: 1
+  GEN.gen: True
+  Newznab0.enabled: True
   Newznab0.host: "{{ nzbhydra_name }}.{{ docker_networks[0].name }}:{{ nzbhydra_ports[0].split(':')[0] }}"
   Newznab0.api: "{{ nzbhydra_config['main.apiKey'] }}"
