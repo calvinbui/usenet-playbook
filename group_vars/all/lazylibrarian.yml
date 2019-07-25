@@ -26,8 +26,8 @@ lazylibrarian_config:
   General.audio_tab: 1
   General.ebook_tab: 1
   OPDS.opds_enabled: 1
-  OPDS.metainfo: 1
-  NZBGet.nzbget_host: "{{ nzbget_name }}.{{ docker_networks[0].name }}:"
+  OPDS.opds_metainfo: 1
+  NZBGet.nzbget_host: "{{ nzbget_name }}.{{ docker_networks[0].name }}"
   NZBGet.nzbget_port: "{{ nzbget_ports[0].split(':')[0] }}"
   NZBGet.nzbget_category: Books
   USENET.nzb_downloader_nzbget: 1
