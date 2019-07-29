@@ -15,6 +15,6 @@ organizr_docker_additional_options:
   labels:
     traefik.frontend.rule: "Host:{{ common_tldr }}"
     # HSTS
-    traefik.frontend.headers.STSSeconds: "15552000"
+    traefik.frontend.headers.STSSeconds: "31536000"
     traefik.frontend.headers.STSIncludeSubdomains: "true"
     traefik.frontend.headers.STSPreload: "true"
