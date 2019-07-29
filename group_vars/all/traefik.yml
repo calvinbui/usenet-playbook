@@ -1,7 +1,7 @@
 ---
 
 traefik_name: traefik
-traefik_image: traefik:1.7.11-alpine
+traefik_image: traefik:1.7.12-alpine
 traefik_config_template: mytraefik.toml.j2
 traefik_config_directory: "{{ common_directory_config }}/traefik/"
 traefik_ports:
