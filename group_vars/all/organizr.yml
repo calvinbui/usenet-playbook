@@ -13,7 +13,7 @@ organizr_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
   labels:
-    traefik.frontend.rule: "Host:{{ common_tldr }}"
+    traefik.frontend.rule: "Host:{{ common_tld }}"
     # HSTS
     traefik.frontend.headers.STSSeconds: "31536000"
     traefik.frontend.headers.STSIncludeSubdomains: "true"
