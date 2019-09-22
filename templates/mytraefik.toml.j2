@@ -1,45 +1,36 @@
-# https://docs.traefik.io/configuration/logs/#traefik-logs
-logLevel = "INFO"
+[global]
+  checkNewVersion = false
+  sendAnonymousUsage = false
 
-# https://docs.traefik.io/user-guide/examples/#http-redirect-on-https
-defaultEntryPoints = ["http", "https"]
-
+# https://docs.traefik.io/v2.0/routing/entrypoints/
 [entryPoints]
-  [entryPoints.http]
-    address = ":80"
-    [entryPoints.http.redirect]
-    entryPoint = "https"
-  [entryPoints.https]
+  [entryPoints.websecure]
     address = ":443"
-    [entryPoints.https.tls]
-      minVersion = "VersionTLS12"
-      cipherSuites = [
-        "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
-        "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
-        "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305"
-      ]
-  [entryPoints.api]
-    address = ":8080"
 
-[api]
-  dashboard = true
-  entryPoint = "api"
+# https://docs.traefik.io/v2.0/observability/logs/
+[log]
+  level = "INFO"
 
-[accessLog]
+[tls.options]
+  [tls.options.default]
+    minVersion = "VersionTLS12"
+    cipherSuites = [
+      "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+      "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+      "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305"
+    ]
 
-# https://docs.traefik.io/user-guide/examples/#dns-challenge-with-wildcard-domains
-[acme]
-storage = "acme.json"
-entryPoint = "https"
-[[acme.domains]]
-  main = "*.{{ common_tld }}"
-  sans = ["{{ common_tld }}"]
-[acme.dnsChallenge]
-  provider = "cloudflare"
-  delayBeforeCheck = 10
 
-# https://docs.traefik.io/configuration/backends/docker/
-[docker]
-endpoint = "unix:///var/run/docker.sock"
-watch = true
-domain = "{{ common_tld }}"
+[certificatesResolvers.sample.acme]
+  email = "{{ common_email_username }}"
+  storage = "acme.json"
+  [certificatesResolvers.sample.acme.dnsChallenge]
+    provider = "cloudflare"
+    delayBeforeCheck = 10
+
+# https://docs.traefik.io/v2.0/providers/docker/
+[providers.docker]
+  endpoint = "unix:///var/run/docker.sock"
+  exposedByDefault = true
+  defaultRule = "Host(`{{ normalize .Name }}.{{common_tld}}`)"
+  useBindPortIP = true

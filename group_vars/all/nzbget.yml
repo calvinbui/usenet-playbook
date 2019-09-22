@@ -15,7 +15,7 @@ nzbget_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
   labels:
-    traefik.frontend.auth.basic.usersFile: "/htpasswd"
+    traefik.http.middlewares.middleware01.basicauth.usersfile: "/htpasswd"
 
 nzbget_config:
   MainDir: '/downloads'

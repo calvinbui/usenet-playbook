@@ -11,4 +11,4 @@ portainer_docker_additional_options:
   networks: "{{ docker_networks }}"
   command: '--no-auth --no-analytics'
   labels:
-    traefik.frontend.auth.basic.usersFile: "/htpasswd"
+    traefik.http.middlewares.middleware01.basicauth.usersfile: "/htpasswd"

@@ -16,7 +16,7 @@ couchpotato_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
   labels:
-    traefik.frontend.auth.basic.usersFile: "/htpasswd"
+    traefik.http.middlewares.middleware01.basicauth.usersfile: "/htpasswd"
 
 couchpotato_config:
   core.api_key: !vault |

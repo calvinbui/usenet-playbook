@@ -13,8 +13,10 @@ traefik_docker_additional_options:
   restart_policy: always
   networks: "{{ docker_networks }}"
   labels:
-    traefik.port: "{{ traefik_ports[0].split(':')[0] }}"
-    traefik.frontend.auth.basic.usersFile: "/htpasswd"
+    traefik.http.services.service0.loadbalancer.server.port: "{{ traefik_ports[0].split(':')[0] }}"
+    traefik.http.middlewares.middleware01.basicauth.usersfile: "/htpasswd"
+    traefik.http.routers.router1.tls: true
+
   volumes:
     - "{{ traefik_config_directory }}/htpasswd:/htpasswd"
     - /var/run/docker.sock:/var/run/docker.sock

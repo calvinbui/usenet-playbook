@@ -20,8 +20,8 @@ qbittorrent_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
   labels:
-    traefik.port: "{{ qbittorrent_webui_port }}"
-    traefik.frontend.auth.basic.usersFile: "/htpasswd"
+    traefik.http.services.service0.loadbalancer.server.port: "{{ qbittorrent_webui_port }}"
+    traefik.http.middlewares.middleware01.basicauth.usersfile: "/htpasswd"
 
 qbittorrent_config:
   Preferences.Downloads\UseIncompleteExtension: 'true'

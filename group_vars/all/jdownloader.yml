@@ -19,5 +19,5 @@ jdownloader_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
   labels:
-    traefik.port: "{{ jdownloader_ports[0].split(':')[0] }}"
-    traefik.frontend.auth.basic.usersFile: "/htpasswd"
+    traefik.http.services.service0.loadbalancer.server.port: "{{ jdownloader_ports[0].split(':')[0] }}"
+    traefik.http.middlewares.middleware01.basicauth.usersfile: "/htpasswd"
